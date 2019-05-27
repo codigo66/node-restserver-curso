@@ -15,3 +15,4 @@ PUT es utilizado cuando se quiere actualizar data
 Instalar el body-parser para la serialización de las peticiones POST
 
 Creando un archivo de configuración local
+Crear server/config/config.js para modificar el process, estableciendo que sea el que proporcione Heroku o el local
