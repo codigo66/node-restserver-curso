@@ -1,0 +1,17 @@
+Iniciando el proyecto
+- Crear folder
+- Abrir folder en el editor (VSC)
+- Abrir terminal de node
+$ npm init
+- Instalar express
+$ npm i express
+- Crear server/server.js para las configuraciones del server
+- Inicializar la app con nodemon
+
+Peticiones HTTP GET - PUT - POST - DELETE
+GET 
+POST es utilizado para crear nuevos registros
+PUT es utilizado cuando se quiere actualizar data
+Instalar el body-parser para la serialización de las peticiones POST
+
+Creando un archivo de configuración local
