@@ -4,6 +4,13 @@ process.env.PORT = process.env.PORT || 3000;
 // Entorno
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
+// Vencimiento del token
+// segundos * minutos * horas * dias
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+
+// SEED (palabra secreta)
+process.env.SEED_TOKEN = process.env.SEED_TOKEN || 'este-es-el-seed-desarrollo';
+
 // Base de datos
 let urlDB;
 if (process.env.NODE_ENV === 'dev') {
