@@ -11,14 +11,12 @@
 </head>
 
 <body>
-    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
-    <div id="google-signin" class="g-signin2"></div>
+    <div id="google-signin" class="g-signin2" data-onsuccess="onSignIn"></div>
     <a href="#" onclick="signOut();">Sign out</a>
 
     <script>
-        document.getElementById('google-signin').addEventListener('click', function() {
-            onSignIn(googleUser);
-        });
+        var id_token;
+        document.getElementById('google-signin').addEventListener('click', signGoogle);
 
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
@@ -28,9 +26,18 @@
             //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
             // Token de Google para validar acceso
-            var id_token = googleUser.getAuthResponse().id_token;
+            id_token = googleUser.getAuthResponse().id_token;
             //console.log(id_token);
+        }
 
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function() {
+                console.log('User signed out.');
+            });
+        }
+
+        function signGoogle() {
             // Enviar token al server
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '/google');
@@ -39,15 +46,6 @@
                 //console.log('Signed in as: ' + xhr.responseText);
             };
             xhr.send('idtoken=' + id_token);
-        }
-    </script>
-
-    <script>
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function() {
-                console.log('User signed out.');
-            });
         }
     </script>
 </body>
