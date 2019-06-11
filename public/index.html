@@ -16,7 +16,9 @@
     <a href="#" onclick="signOut();">Sign out</a>
 
     <script>
-        document.getElementById('google-signin').addEventListener('click', onSignIn);
+        document.getElementById('google-signin').addEventListener('click', function() {
+            onSignIn(googleUser);
+        });
 
         function onSignIn(googleUser) {
             var profile = googleUser.getBasicProfile();
